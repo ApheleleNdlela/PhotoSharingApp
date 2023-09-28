@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ViewComponent {
 
+  User:any = {
+    name: '',
+    image: '',
+    caption: ''
+  }
+
 }

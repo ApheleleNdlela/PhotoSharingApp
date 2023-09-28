@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BackendApiService {
-  apiUrl = 'http://localhost:3300/images/';
+  apiUrl = 'http://localhost:3300/post';
 
   constructor(private http: HttpClient) {}
 
@@ -19,11 +19,11 @@ export class BackendApiService {
   }
 
   getPosts(id: number): Observable<any> {
-    return this.http.get(`'http://localhost:3300/images/'${id}`);
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
   deletePost(id: number): Observable<any> {
-    return this.http.delete(`'http://localhost:3300/images/'${id}`);
+    return this.http.delete(`${this.apiUrl}/{id}`);
 
   }
 

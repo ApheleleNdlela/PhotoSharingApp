@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BackendApiService } from '../services/backend-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-profile',
@@ -13,13 +16,15 @@ export class AddProfileComponent implements OnInit {
     caption: new FormControl(''),
   });
 
-  constructor() {}
+  // router: any;
+
+  constructor(private backEnd: BackendApiService,
+    private dialog: MatDialogRef<AddProfileComponent>,
+    private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
     
-  }
-  post() {
-    alert('Hello');
   }
 
   file: any;
@@ -27,4 +32,43 @@ export class AddProfileComponent implements OnInit {
   files(event: any) {
     this.file = event.target.files[0]
   }
+
+  SelectedImage(): void {
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+
+    if (!this.file) {
+      alert('Upload an image!');
+    } else if (
+      this.file &&
+      !allowedTypes.includes(this.file.type)
+    ) {
+      alert('Upload images only');
+    }
+  }
+
+  post() {
+
+ 
+          let formData = new FormData();
+          formData.append('name', this.userForm.value.name);
+          formData.append('image', this.userForm.value.image);
+          formData.append('caption', this.userForm.value.caption);
+          formData.append('file', this.file);
+
+          this.SelectedImage();
+
+          this.backEnd.uploadPost(formData).subscribe({
+            next: () => {
+              this.reloadCurrentRoute();
+              this.dialog.close(true);
+            }
+});
+}
+
+reloadCurrentRoute() {
+  const currentUrl = this.router.url;
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    this.router.navigate([currentUrl]);
+  });
+}
 }

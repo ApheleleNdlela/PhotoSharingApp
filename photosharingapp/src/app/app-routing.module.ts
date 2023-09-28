@@ -4,6 +4,7 @@ import { ViewComponent } from './view/view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddProfileComponent } from './add-post/add-profile.component';
 import { LoginComponent } from './login/login.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"view", component: ViewComponent},
 
   {path:"navbar", component: NavbarComponent},
-  {path: "profile", component: AddProfileComponent},
+  {path: "post", component: AddProfileComponent},
+  {path: "profile", component: UserProfileComponent},
   {path:"login",component: LoginComponent},
 ];
 
