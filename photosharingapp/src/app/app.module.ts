@@ -21,6 +21,7 @@ import { AddProfileComponent } from './add-post/add-profile.component';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -30,6 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddProfileComponent,
     ViewComponent,
     NavbarComponent,
+    UserProfileComponent,
     
 
     
