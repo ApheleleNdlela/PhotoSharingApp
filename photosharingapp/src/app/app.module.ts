@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ServicesComponent } from './services/services.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 @NgModule({
@@ -28,6 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatButtonModule,
     HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule
 
   ],
   providers: [],
