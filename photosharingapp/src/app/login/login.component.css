@@ -1,0 +1,46 @@
+
+    .container{
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .mine{
+        display: flex;
+        justify-content: end;
+        /* text-decoration-color: brown; */
+        
+    }
+    .height{
+        height: 50%;
+    }
+    .color{
+        background-color: black;
+    }
+    
+    /* #profile{
+    
+    display: none;
+      
+    }  */
+    
+mat-form-field {
+    width: 100%;
+}
+    #newItem{
+        /* border: 1px solid red; */
+        display: none;
+     
+       
+     }
+     /* #description-n {
+        
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+     } */
+    .WELCOME{
+        margin-left: 45%;
+
+    }
+    .Login{
+        margin-left: 45%;
+    }
