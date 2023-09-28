@@ -6,7 +6,7 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
 
 const routes: Routes = [
 
-  {path: "", redirectTo: "app", pathMatch:"full"},
+  {path: "", redirectTo: "/view", pathMatch:"full"},
 
   {path:"view", component: ViewComponent},
 
