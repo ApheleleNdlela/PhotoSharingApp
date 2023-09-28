@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
-import { AddProfileComponent } from './add-profile/add-profile.component';
+import { AddProfileComponent } from './add-post/add-profile.component';
 
 @Component({
   selector: 'app-root',

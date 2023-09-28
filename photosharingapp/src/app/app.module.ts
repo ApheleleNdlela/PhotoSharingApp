@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddProfileComponent } from './add-profile/add-profile.component';
+import { AddProfileComponent } from './add-post/add-profile.component';
 // import { ServicesComponent } from './services/services.component';
 
 
