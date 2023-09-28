@@ -35,4 +35,10 @@ export class ViewComponent implements OnInit {
       error: console.log,
     });
   }
+  User:any = {
+    name: '',
+    image: '',
+    caption: ''
+  }
+
 }

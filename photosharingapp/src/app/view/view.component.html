@@ -4,12 +4,12 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Vuyo</mat-card-title>
+      <mat-card-title>{{User.name}}</mat-card-title>
       <mat-card-subtitle>14:30</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="../../assets/mirabel.jpg" alt="Photo of Mirabel">
+    <img mat-card-image src="{{User.image}}" alt="Photo of Mirabel">
     <mat-card-content>
-      <p>Caption</p>
+      <p>{{User.caption}}</p>
     
     </mat-card-content>
     <mat-card-actions>
@@ -24,5 +24,5 @@
  
 
 
-<!-- <app-navbar></app-navbar> -->
+
 
