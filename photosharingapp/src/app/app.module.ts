@@ -12,12 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { ServicesComponent } from './services/services.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    
+
     
     
   ],
@@ -25,7 +29,7 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ViewComponent,
+
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
