@@ -19,16 +19,11 @@ const routes: Routes = [
   {path:"navbar", component: NavbarComponent},
 
   {path: "post", component: AddProfileComponent},
-<<<<<<< HEAD
-  {path: "profile", component: UserProfileComponent},
-  {path:"login",component: LoginComponent},
-=======
 
   {path: "register", component: RegisterComponent},
 
   {path: "login", component: LoginComponent},
   {path: "profile", component: UserProfileComponent}
->>>>>>> 2f40bbd4a2bd9d0bc765290afc6ce6844b0f4904
 ];
 
 @NgModule({
