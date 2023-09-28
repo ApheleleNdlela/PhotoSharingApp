@@ -1,1 +1,61 @@
-<p>register works!</p>
+
+
+<body>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#"> -->
+            <!-- <img src="https://yt3.googleusercontent.com/jXbAb1L6-n-9bBn1I_3Ocbzf5qOgIxS72abvqav7eOTpW9Ryop1z4aIU-Ww4ENm515yG7GWhf_I=s900-c-k-c0x00ffffff-no-rj" alt="Logo" width="50" height="50" class="d-inline-block align-text-top"> -->
+            
+            
+            <span><a href="login.html" style="text-decoration: none;"><h6 id="login">LOGIN</h6></a> </span> 
+            <span><a href="register.html"  style="text-decoration: none;"> <h6 id="register">REGISTER</h6></a></span>
+            
+          <!-- </a> -->
+        </div>
+      </nav>
+
+ <div class="container">
+        <div class="forms">
+    <div class="form signup">
+        <!-- <img src="https://yt3.googleusercontent.com/jXbAb1L6-n-9bBn1I_3Ocbzf5qOgIxS72abvqav7eOTpW9Ryop1z4aIU-Ww4ENm515yG7GWhf_I=s900-c-k-c0x00ffffff-no-rj" alt="Logo" width="50" height="50" class="d-inline-block align-text-top"> -->
+        <h5>Sign up</h5>
+        <p class="create">Create your new account</p>
+
+
+        <form action="#">
+            <div class="input-field">
+                <input type="text" placeholder="Username" id="username" required>
+             
+                <!-- <i class="fi fi-rr-user"></i> -->
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="Password" id="password" required>
+                
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="Re-type password" id="confirmPassword" required>
+              
+            </div>  
+
+            <div class="input-field button">
+                <button type="submit" onclick="register()" id="registerButton">Register</button>
+            </div>
+
+            <p id="alert-message"></p>
+        </form>
+
+        <div class="existing-account">
+            <span class="text">
+                Already have an account?
+                <a href="login.html" class="login-link">Login</a>
+            </span>
+        </div>
+
+     </div>
+        </div>  
+ </div>
+
+</body>
+
+<app-navbar></app-navbar>
