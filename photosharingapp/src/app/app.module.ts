@@ -8,12 +8,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddProfileComponent } from './add-profile/add-profile.component';
+// import { ServicesComponent } from './services/services.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -22,6 +26,7 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
     AppComponent,
     AddProfileComponent,
 
+    
     
   ],
   imports: [
@@ -37,7 +42,11 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule
 
   ],
   providers: [],

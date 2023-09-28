@@ -1,12 +1,27 @@
 
   <mat-toolbar color="warn">
+<p>
+  <mat-toolbar class="navbar">
     <mat-toolbar-row>
       <span>PHOTO SHARING APP</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
+      
+        
+        
+    
+    
+        
+      
+       <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+        
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>profile</button>
+          <button mat-menu-item>sign out</button>
+        </mat-menu>
+       
     </mat-toolbar-row>
 
 <button (click)="add()">+</button>
+    
+
 <router-outlet></router-outlet>
