@@ -10,11 +10,11 @@ import { AddProfileComponent } from './add-profile/add-profile.component';
 export class AppComponent {
   title = 'photosharingapp';
 
-  constructor(private _dialog: MatDialog){
+  // constructor(private _dialog: MatDialog){
     
-  }
+  // }
 
-  add(){
-    this._dialog.open(AddProfileComponent)
-  }
+  // add(){
+  //   this._dialog.open(AddProfileComponent)
+  // }
 }
