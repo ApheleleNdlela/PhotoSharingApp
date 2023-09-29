@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-profile.component.css']
 })
 export class AddProfileComponent implements OnInit {
+  
   userForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     image: new FormControl(''),
@@ -50,6 +51,7 @@ export class AddProfileComponent implements OnInit {
 
  
           let formData = new FormData();
+          
           formData.append('name', this.userForm.value.name);
           formData.append('image', this.userForm.value.image);
           formData.append('caption', this.userForm.value.caption);
