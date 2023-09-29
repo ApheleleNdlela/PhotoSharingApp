@@ -1,5 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BackendApiService } from '../services/backend-api.service';
+import { AddProfileComponent } from '../add-post/add-profile.component';
 import { BackendApiService } from '../services/backend-api.service';
 
 
@@ -36,9 +38,34 @@ export class ViewComponent implements OnInit {
     });
   }
   User:any = {
+export class ViewComponent implements OnInit{
+
+
+  posts: any;
+
+  post:any = {
     name: '',
     image: '',
     caption: ''
   }
+
+  constructor(
+    private service: BackendApiService,
+    ){}
+
+  ngOnInit(): void{
+    this.getallPosts() 
+  }
+
+  getallPosts(): void {
+
+    this.service.getallPosts().subscribe({
+      next: (res) => {
+        this.posts = res;
+      },
+    });
+  }
+
+
 
 }
