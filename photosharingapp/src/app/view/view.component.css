@@ -32,3 +32,18 @@
     bottom: 305px;
     left: 305px;
   }
+
+  .feed{
+    display: flex;
+    justify-content: center;
+    text-decoration: solid;
+    text-size-adjust: 150px;
+  }
+
+  .grid{
+    display: grid;
+    grid: 150px / auto auto auto;
+    grid-gap: 20px;
+  }
+
+  
