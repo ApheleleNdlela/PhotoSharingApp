@@ -47,6 +47,13 @@ export class AddProfileComponent implements OnInit {
     }
   }
 
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
+
   post() {
 
  
@@ -67,10 +74,5 @@ export class AddProfileComponent implements OnInit {
 });
 }
 
-reloadCurrentRoute() {
-  const currentUrl = this.router.url;
-  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    this.router.navigate([currentUrl]);
-  });
-}
+
 }

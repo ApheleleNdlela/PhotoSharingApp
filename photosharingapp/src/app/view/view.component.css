@@ -2,12 +2,15 @@
     background-color: blueviolet;
 } */
 
-.example-card {
+.post-card {
     max-width: 400px;
-    position: relative;
-    left: 70px;
-    top: 50px;
-    
+    border: 1px solid #fff;
+    margin: 10px auto;
+  }
+  
+  .image {
+    max-height: 250px;
+    padding-bottom: 20px;
   }
   
   .example-header-image {
@@ -40,10 +43,11 @@
     text-size-adjust: 150px;
   }
 
-  .grid{
-    display: grid;
-    grid: 150px / auto auto auto;
-    grid-gap: 20px;
+  .container {
+    border: 1px solid #fff;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgb(122, 108, 247);
   }
 
   
