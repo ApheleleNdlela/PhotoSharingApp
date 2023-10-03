@@ -6,6 +6,7 @@ import { AddProfileComponent } from './add-post/add-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
 
@@ -20,7 +21,10 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
 
   {path: "login", component: LoginComponent},
-  {path: "profile", component: UserProfileComponent}
+  {path: "profile", component: UserProfileComponent},
+
+  // Test Components
+  {path: "test", component: TestComponent}
 ];
 
 @NgModule({
