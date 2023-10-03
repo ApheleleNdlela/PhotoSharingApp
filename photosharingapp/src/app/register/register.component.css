@@ -1,188 +1,47 @@
-.row {
-    margin: 0;
-    padding:0 ;
-    align-items: center;
-    justify-content: center;
+
+.card {
+    margin-left: 35%;
+    margin-top: 50px;
     display: flex;
-}
- 
-
-
-img{
-    background-color: rgb(248, 245, 245);
-}
-
-span{
-    position: relative;
-  top: 80px; 
-  padding: 0 30px;
-}
-
-
-.navReg{
-    font-weight: bolder;
-    font-size: xx-large;    
-}
-
-.navLog{
-    font-weight: bolder;
-    font-size: xx-large;
-    color: rgb(189, 188, 188);
-    position: relative;
-    left: 130px;   
-}
-
-.card-auth{
-    display: flex ;
-    justify-content: center;
-    background-color: lightgrey;
-    width: 400px;
-    height: 355px;
-    position: relative;
-    top: 130px;
-     
-}
-
-#fullname{
-    margin: 10px;
-
-}
-
-#usernameInput{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border-radius: 15px; */
-    border-color: white;
+    flex-direction: column;
     width: 300px;
-    height: 40px;
-    /* font-weight: bold; */
-    font-size: 17px;
-    color: black;
-    position: relative;
-    /* left: 2px; */
-    top: 90px;
-}
-
-#email{
-    margin: 10px;
-}
-
-#emailInput{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    /* border-radius: 15px; */
-    border-color: white;
-    width: 300px;
-    height: 40px;
-    /* font-weight: bold; */
-    font-size: 17px;
-    color: black;
-    position: relative;
-    top: 90px;
-    
-}
-
-#password{
-    
-    margin: 10px; 
-}
-
-#passwordInput{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    /* border-radius: 15px; */
-    border-color: white;
-    width: 300px;
-    height: 40px;
-    /* font-weight: bold; */
-    font-size: 17px;
-    color: black;
-    position: relative;
-    right: 10px;
-    top: 90px;
-}
-
-#c_password{
-    
-    margin: 10px; 
-}
-
-#c_passwordInput{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    /* border-radius: 15px; */
-    border-color: white;
-    width: 300px;
-    height: 40px;
-    /* font-weight: bold; */
-    font-size: 17px;
-    color: black;
-    position: relative;
-    right: 10px;
-    top: 90px;
-}
-
-
-#registerButton{
-    background-color: black;
+    height: 400px;
+    /* background: blue; */
+    padding: 2em;
+    border: 1px solid black;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px black;
+}
+
+.card-head {
+    margin-left: 100px;
+}
+
+
+form {
+    margin-left: 50px;
+}
+
+input {
+    width: 200px;
+    height: 35px;
+    color: black;
+    margin-top: 10px;
+}
+
+button {
+    width: 210px;
+    height: 35px;
     color: white;
-    margin-left: 35px;
-    height: 50px;
-    width: 100px;
-    font-weight: bold;
-    font-size: 20px;
-    position: relative;
-    top: 140px;
-      
+    background: black;
+    border: none;
+    margin-left: 50px;
+    margin-top: 10px;
 }
 
-#existingAccount{
-    /* font-weight: bold; */
-    font-style: italic;
-    /* font-size: larger; */
-    /* padding: 0 30px; */
-    position: relative;
-    /* top: 200px; */
-    left: 130px;
-    
-}
-
-#loginName{
-    color: blue; 
-
-}
-
-#buttonFor-register{
+.login {
+    width: 200px;
     text-align: center;
-    padding-right: 35px;
-     
+    margin-left: 50px;
+    margin-top: 10px;
 }
-
-
-
-/* .alert-danger-fullname{
-     color: red;
-     font-weight: bold;
-     font-style: italic;
-     font-size: large;
-     
-} */
-
-/* .alert-danger-email{
-    color: red;
-    font-weight: bold;
-   font-style: italic;
-    font-size: large;
-} */
-
-/* .alert-danger-password{
-    color: red;
-    font-weight: bold;
-   font-style: italic;
-    font-size: large;
-} */
