@@ -1,7 +1,9 @@
 import { Component,OnInit} from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendApiService } from '../services/backend-api.service';
 import { AddProfileComponent } from '../add-post/add-profile.component';
+
 
 
 
@@ -13,19 +15,6 @@ import { AddProfileComponent } from '../add-post/add-profile.component';
 })
 export class ViewComponent implements OnInit {
   
-
-  deletePost(id: number): void {
-    alert ('Are you sure you want to delete?');
-    this.service.deletePost(id).subscribe({
-      next: () => {
-        this.getallPosts()
-      },
-      error: console.log,
-    });
-  }
-
-
-
 
   posts: any;
 
@@ -52,6 +41,14 @@ export class ViewComponent implements OnInit {
     });
   }
 
-
+  deletePost(id: number): void {
+    alert ('Are you sure you want to delete?');
+    this.service.deletePost(id).subscribe({
+      next: () => {
+        this.getallPosts()
+      },
+      error: console.log,
+    });
+  }
 
 }
