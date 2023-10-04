@@ -1,7 +1,7 @@
 import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendApiService } from '../services/backend-api.service';
-import { AddProfileComponent } from '../add-post/add-profile.component';
+// import { AddProfileComponent } from '../add-post/add-profile.component';
 
 
 
@@ -24,11 +24,19 @@ export class ViewComponent implements OnInit {
   }
 
   constructor(
-    private service: BackendApiService,
+    private service: BackendApiService, private _router: Router
     ){}
 
   ngOnInit(): void{
     this.getallPosts() 
+    // this.reloadCurrentRoute()
+  }
+
+  reloadCurrentRoute() {
+    // const currentUrl = this._router.url;
+    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    //   this._router.navigate([currentUrl]);
+    // });
   }
 
   getallPosts(): void {

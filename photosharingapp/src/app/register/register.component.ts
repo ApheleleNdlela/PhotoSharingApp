@@ -7,6 +7,7 @@ import { BackendApiService } from '../services/backend-api.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
   form: any = {
     username: null,
     email: null,
@@ -19,7 +20,7 @@ export class RegisterComponent {
 
   constructor(
     
-    private BackendApiService: BackendApiService,
+    private service: BackendApiService,
     ) { }
 
   ngOnInit() {
@@ -32,11 +33,11 @@ export class RegisterComponent {
     // const { username, email, password } = this.form;
     
 //     console.log(this.form)
-//     this.BackendApiService.(username,email,password).subscribe({
+//     this.service.(username,email,password).subscribe({
 //       next: data => {
 //         console.log(data)
 
-//         this.BackendApiService.(data);
+//         thiservice.(data);
       
 //         this.isSuccessful = true;
 //         if(this.isSuccessful){
