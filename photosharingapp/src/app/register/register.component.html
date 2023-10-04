@@ -1,23 +1,46 @@
 <!-- <app-navbar></app-navbar> -->
 
-<div class="container">
+<div class="card-head class" >
+    <h2>SIGN UP</h2>
+    <p>Create your new account.</p>
+</div>
+
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+
+<div mat-dialog-content class="container">
   <div class="card">
 
-      <div class="card-head">
-          <h2>SIGN UP</h2>
-          <p>Create your new account.</p>
-      </div>
-      <form action="">
-          <input type="text" placeholder="*Username" >
-          <input type="email" placeholder="*Email" >
+ 
 
-          <input type="password" placeholder="*Password" >
-          <input type="password" placeholder="*Confirm password ">
-      </form>
+     <mat-form-field id="username" appearance="outline">
 
-      <button>Register</button>
-      <p class="login">Already have an account? <a href="">Login</a>.</p>
+        <mat-label for="username">username</mat-label>
+        <input matInput formControlName="username" required="true" />
+        
+    </mat-form-field>
+
+    <mat-form-field id="email" appearance="outline">
+        <mat-label for="email">Email</mat-label>
+        <input matInput formControlName="email" required="true" />
+    </mat-form-field>
+
+    <mat-form-field id="password" appearance="outline">
+        <mat-label for="password">Password</mat-label>
+        <input matInput formControlName="password" required="true" />
+    </mat-form-field>
+
+    <mat-form-field id="password2" appearance="outline">
+        <mat-label for="password2">Retype-Password</mat-label>
+        <input matInput formControlName="password2" required="true" />
+    </mat-form-field>
+     
+    <mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+      <p class="login">Already have an account? <a href="/login">Login</a>.</p>
+    </mat-dialog-actions>
+
   </div>
 </div>
+</form>
 
 
