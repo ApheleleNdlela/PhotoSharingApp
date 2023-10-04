@@ -10,7 +10,11 @@ import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
 
-  {path: "", redirectTo: "/view", pathMatch:"full"},
+  {path: "", redirectTo: "register", pathMatch:"full"},
+
+  {path: "register", component: RegisterComponent},
+
+  {path: "login", component: LoginComponent},
 
   {path:"view", component: ViewComponent},
 
@@ -18,9 +22,9 @@ const routes: Routes = [
 
   {path: "post", component: AddProfileComponent},
 
-  {path: "register", component: RegisterComponent},
+  
 
-  {path: "login", component: LoginComponent},
+  
   {path: "profile", component: UserProfileComponent},
 
   // Test Components
