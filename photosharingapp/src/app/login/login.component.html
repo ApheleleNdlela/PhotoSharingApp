@@ -5,15 +5,35 @@
           <h2>WELCOME BACK.</h2>
           <p>Login to your account</p>
       </div>
-      <form action="">
-          <input type="text" placeholder="*Username" >
+      <form action="" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <input type="text" placeholder="*Username" 
+          type="text" name="username" 
+          class="form-control" id="emailInput"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel" required
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
           
 
-          <input type="password" placeholder="*Password" >
+          <input type="password" placeholder="*Password" 
+          type="password" 
+          name="password" class="form-control" 
+          id="passwordInput"
+          [(ngModel)]="form.password"
+          required
+          minlength="8"
+          #password="ngModel" required
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }" >
           
       </form>
 
       <button>Login</button>
-      <p class="login">Don`t have an account? <a href="">Register</a>.</p>
+      <p class="login">Don`t have an account? <a href="/register">Register</a>.</p>
   </div>
 </div>
+
+
+ 
+  
+
