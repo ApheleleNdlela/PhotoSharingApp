@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-register',
@@ -8,12 +11,13 @@ import { BackendApiService } from '../services/backend-api.service';
 })
 export class RegisterComponent {
 
-  form: any = {
-    username: null,
-    email: null,
-    password: null,
-    c_password: null,
-  };
+  registerForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl(''),
+    paswword: new FormControl(''),
+    paswword2: new FormControl(''),
+  });
+
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -21,39 +25,14 @@ export class RegisterComponent {
   constructor(
     
     private service: BackendApiService,
+    @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
   ngOnInit() {
-    //  this.user.currentUserData.subscribe((userData: any) => this.userData = userData)
-  //   if (this.storageService.isSuccessful()) {
-  //     this.isSuccessful = true;
-  // }
-}
-  // register(){
-    // const { username, email, password } = this.form;
-    
-//     console.log(this.form)
-//     this.service.(username,email,password).subscribe({
-//       next: data => {
-//         console.log(data)
 
-//         thiservice.(data);
-      
-//         this.isSuccessful = true;
-//         if(this.isSuccessful){
-//           // this.authService.login(username,password).subscribe()
-//         }
-//         this.isSignUpFailed = false;
-//         window.location.replace("user-profile") // last line
-//       },
-//       error: err => {
-        
-//         this.errorMessage = err.error.message;
-//         this.isSignUpFailed = true;
-//       }
-//     })
-//     // this.user.changeData(data);
-//   }
+}
+  register(){
+    alert('hello')
   
 }
-
+}
