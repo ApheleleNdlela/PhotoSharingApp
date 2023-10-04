@@ -3,9 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-// const base_url = 'https://i-sakhono-backend.vercel.app/api/'
-// const user_api = "https://i-sakhono-backend.vercel.app/api/users/"
-const base_url = "http://localhost:3300"
+const base_url = "http://localhost:3300/users"
 const token = window.sessionStorage.getItem("token")
 const httpOptions = {
   headers: new HttpHeaders ({
@@ -22,17 +20,30 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  registerUser(username: string, email: string, password: string){
-    return this.http.post(base_url + "auth/signup", {username,email,password})
+  register(username: any, email: any, password: any, password2: any):
+  Observable<any> {
+    return this.http.post( base_url +'signup', {
+      username,
+      email,
+      password,
+      password2
+    }, httpOptions);
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(
-      base_url + 'auth/signin',
-      {
-        username,
-        password,
-      }
-    );
-  }
+login(username: any, password: any):
+Observable<any> {
+  return this.http.post(base_url + '/login', {
+    username,
+    password
+  },httpOptions);
+
 }
+
+}
+
+
+
+
+
+
+
