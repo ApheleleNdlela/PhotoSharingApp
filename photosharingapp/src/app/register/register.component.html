@@ -5,7 +5,7 @@
     <p>Create your new account.</p>
 </div>
 
-<form [formGroup]="registerForm" (ngSubmit)="register()">
+<div >
 
 <div mat-dialog-content class="container">
   <div class="card">
@@ -15,32 +15,28 @@
      <mat-form-field id="username" appearance="outline">
 
         <mat-label for="username">username</mat-label>
-        <input matInput formControlName="username" required="true" />
+        <input matInput required="true" [(ngModel)]="registerForm.username" />
         
     </mat-form-field>
 
     <mat-form-field id="email" appearance="outline">
         <mat-label for="email">Email</mat-label>
-        <input matInput formControlName="email" required="true" />
+        <input matInput  required="true" [(ngModel)]="registerForm.email" />
     </mat-form-field>
 
     <mat-form-field id="password" appearance="outline">
         <mat-label for="password">Password</mat-label>
-        <input matInput formControlName="password" required="true" />
+        <input matInput  required="true" [(ngModel)]="registerForm.password"/>
     </mat-form-field>
 
-    <mat-form-field id="password2" appearance="outline">
-        <mat-label for="password2">Retype-Password</mat-label>
-        <input matInput formControlName="password2" required="true" />
-    </mat-form-field>
-     
+
     <mat-dialog-actions>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+      <button mat-raised-button color="primary" type="button" (click)="register()">Register</button>
       <p class="login">Already have an account? <a href="/login">Login</a>.</p>
     </mat-dialog-actions>
 
   </div>
 </div>
-</form>
+</div>
 
 

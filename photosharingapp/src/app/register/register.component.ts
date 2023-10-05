@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
   invalidPassword: string = '';
   invalidEmail: string ='';
@@ -33,41 +34,41 @@ export class RegisterComponent {
   isSignUpFailed: boolean = false;
   isSuccessful: boolean = false;
   errorMessage: any;
-  private _auth: any;
 
 
   constructor(
     
     private service: BackendApiService,
-    private auth: AuthService,
+    private authService: AuthService,
     private routes: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private location: Location,
+    // @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
-  ngOnInit() {
-
+  ngOnInit() :void {
+    // this.auth;
 }
- register(){
 
-const { username, email, password, password2 } = this.registerForm;
-
-this.auth.register(username, email, password, password2).subscribe({
-
-  next: data => {
-    console.log(data);
-    this.isSuccessful = true;
-    // this.isSignUpFailed = true;
-    
-    // this.location.back()
-  },
-  error: err => {
-    this.errorMessage = err.error.message;
-    this.isSignUpFailed = true;
-  }
-});
- }
-
+register(): void {
+  const { username, email, password, password2 } = this.registerForm;
+ 
+  this.authService.register(username, email, password, ).subscribe({
+    next: data => {
+      console.log(data);
+      this.isSuccessful = true;
+      
+      
+      // this.routes.navigateByUrl()
+    },
+    error: err => {
+      this.errorMessage = err.error.message;
+      this.isSignUpFailed = true;
+    }
+  });
 }
+}
+
+
 
 
 
