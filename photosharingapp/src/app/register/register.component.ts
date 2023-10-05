@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 // import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { StorageService } from 'src/app/services/storage.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -12,14 +12,7 @@ import { StorageService } from 'src/app/services/storage.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-
-  registerForm: any ={
-    username: '',
-    email: '',
-    password: '',
-    password2: ''
-   }
+export class RegisterComponent implements OnInit{
 
   invalidPassword: string = '';
   invalidEmail: string ='';
@@ -36,51 +29,41 @@ export class RegisterComponent {
   isSignUpFailed: boolean = false;
   isSuccessful: boolean = false;
   errorMessage: any;
-  private _auth: any;
-  storage: any;
 
 
   constructor(
     
     private service: BackendApiService,
-    private auth: AuthService,
+    private authService: AuthService,
     private routes: Router,
-    private storageService: StorageService,
-    
+    private location: Location,
     // @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
-  ngOnInit() {
-
+  ngOnInit() :void {
+    // this.auth;
 }
- register(){
 
-const { username, email, password, password2 } = this.registerForm;
-
-this.auth.register(username, email, password, password2).subscribe({
-
-  next: data => {
-    console.log(data);
-
-    this.storage.saveUser(data);
-
-    this.isSuccessful = true;
-
-    if(this.isSuccessful){
-      // this.authService.login(username,password).subscribe()
-    }
-    this.isSignUpFailed = false;
-    window.location.replace("user-profile") // last line
-  },
+register(): void {
+  const { username, email, password, password2 } = this.registerForm;
  
-  error: err => {
-    this.errorMessage = err.error.message;
-    this.isSignUpFailed = true;
-  }
-});
- }
-
+  this.authService.register(username, email, password, ).subscribe({
+    next: data => {
+      console.log(data);
+      this.isSuccessful = true;
+      
+      
+      // this.routes.navigateByUrl()
+    },
+    error: err => {
+      this.errorMessage = err.error.message;
+      this.isSignUpFailed = true;
+    }
+  });
 }
+}
+
+
 
 
 
