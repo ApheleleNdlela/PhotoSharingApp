@@ -5,7 +5,7 @@
           <h2>WELCOME BACK.</h2>
           <p>Login to your account</p>
       </div>
-      <form action="" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <form action="" name="form" (ngSubmit)="f.form.valid && logIn()" #f="ngForm" novalidate>
           <input type="text" placeholder="*Username" 
           type="text" name="username" 
           class="form-control" id="emailInput"
@@ -28,7 +28,7 @@
           
       </form>
 
-      <button>Login</button>
+      <button (click)="logIn()">Login</button>
       <p class="login">Don`t have an account? <a href="/register">Register</a>.</p>
   </div>
 </div>

@@ -37,7 +37,7 @@ export class LoginComponent  {
   }
 
   
-  login() {
+  logIn() {
     // this.user.changeData(data);
     const { username, password } = this.form
 

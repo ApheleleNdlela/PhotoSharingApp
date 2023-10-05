@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 // import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -23,6 +23,13 @@ export class RegisterComponent implements OnInit{
   //   password: new FormControl(''),
   //   password2: new FormControl(''),
   // });
+
+  registerForm: any = {
+    username: '',
+    email: '',
+    password: '',
+    password2: ''
+  }
 
  
 
