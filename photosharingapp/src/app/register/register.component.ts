@@ -1,9 +1,10 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+// import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 
 @Component({
@@ -12,6 +13,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
+  registerForm: any ={
+    username: '',
+    email: '',
+    password: '',
+    password2: ''
+   }
 
   invalidPassword: string = '';
   invalidEmail: string ='';
@@ -23,17 +31,13 @@ export class RegisterComponent {
   //   password2: new FormControl(''),
   // });
 
- registerForm: any ={
-  username: '',
-  email: '',
-  password: '',
-  password2: ''
- }
+ 
 
   isSignUpFailed: boolean = false;
   isSuccessful: boolean = false;
   errorMessage: any;
   private _auth: any;
+  storage: any;
 
 
   constructor(
@@ -41,7 +45,9 @@ export class RegisterComponent {
     private service: BackendApiService,
     private auth: AuthService,
     private routes: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private storageService: StorageService,
+    
+    // @Inject(MAT_DIALOG_DATA) public data: any
     ) { }
 
   ngOnInit() {
@@ -55,11 +61,18 @@ this.auth.register(username, email, password, password2).subscribe({
 
   next: data => {
     console.log(data);
+
+    this.storage.saveUser(data);
+
     this.isSuccessful = true;
-    // this.isSignUpFailed = true;
-    
-    // this.location.back()
+
+    if(this.isSuccessful){
+      // this.authService.login(username,password).subscribe()
+    }
+    this.isSignUpFailed = false;
+    window.location.replace("user-profile") // last line
   },
+ 
   error: err => {
     this.errorMessage = err.error.message;
     this.isSignUpFailed = true;
