@@ -29,6 +29,7 @@ import { TestComponent } from './test/test.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { TestComponent } from './test/test.component';
     LoginComponent,
     RegisterComponent,
     TestComponent,
+    
     
 
     
