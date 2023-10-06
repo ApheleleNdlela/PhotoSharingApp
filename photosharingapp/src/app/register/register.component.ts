@@ -1,10 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { BackendApiService } from '../services/backend-api.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { SnackbarService } from '../services/snackbar.service';
 
 
 @Component({
@@ -17,19 +14,14 @@ export class RegisterComponent implements OnInit{
   invalidPassword: string = '';
   invalidEmail: string ='';
 
-  // registerForm: FormGroup = new FormGroup({
-  //   username: new FormControl(''),
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  //   password2: new FormControl(''),
-  // });
+  registerForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+  });
 
- registerForm: any ={
-  username: '',
-  email: '',
-  password: '',
-  password2: ''
- }
+
 
   isSignUpFailed: boolean = false;
   isSuccessful: boolean = false;
@@ -38,30 +30,40 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     
-    private service: BackendApiService,
     private authService: AuthService,
-    private routes: Router,
-    private location: Location,
-    // @Inject(MAT_DIALOG_DATA) public data: any
+    private _snackBar: SnackbarService
+   
     ) { }
 
   ngOnInit() :void {
-    // this.auth;
+   
 }
 
 register(): void {
-  const { username, email, password, password2 } = this.registerForm;
+  const { username, email, password, confirmPassword } = this.registerForm.value;
  
-  this.authService.register(username, email, password, ).subscribe({
+  if(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g.test(
+    email
+  )===false
+  ) {
+    this.invalidEmail = 'Invalid email';
+  } else if (
+    password !==
+    confirmPassword
+  ){
+    this.invalidPassword = "Passwords don't match"
+    return 
+  }
+    
+  this.authService.register(username, email, password, confirmPassword).subscribe({
     next: data => {
-      console.log(data);
+      this._snackBar.openSnackBar('Registered Successfully', 'Done')
       this.isSuccessful = true;
-      
-      
-      // this.routes.navigateByUrl()
+      window.location.replace('login')
     },
-    error: err => {
-      this.errorMessage = err.error.message;
+    error: ()=> {
+      console.log()
+      this._snackBar.openSnackBar('User Already Exists', 'Failed')
       this.isSignUpFailed = true;
     }
   });

@@ -3,20 +3,15 @@
       <mat-toolbar-row>
         <span>PHOTO SHARING APP</span>
         <span class="example-spacer"></span>
-        
-          
-          
-        
-      
-          
-        <button mat-raised-button color="" (click)="add()">+</button>
+
+        <button mat-raised-button (click)="add()">+</button>
          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
           
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>profile</button>
-            <button mat-menu-item>sign out</button>
-            <button mat-menu-item>login</button>
-            <button mat-menu-item (click)="reg()">Register</button>
+            <button mat-menu-item >profile</button>
+            <button mat-menu-item >sign out</button>
+            <button mat-menu-item routerLink="/login">login</button>
+            <button mat-menu-item>Register</button>
           </mat-menu>
          
       </mat-toolbar-row>

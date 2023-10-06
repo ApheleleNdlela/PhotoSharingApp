@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,7 +61,8 @@ import { TestComponent } from './test/test.component';
     HttpClientModule,
     MatButtonModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
 
   ],
   providers: [],

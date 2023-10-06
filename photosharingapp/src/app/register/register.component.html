@@ -1,42 +1,47 @@
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
 
+<div class="content">
 <div class="card-head class" >
     <h2>SIGN UP</h2>
     <p>Create your new account.</p>
 </div>
 
-<div >
+<form [formGroup]="registerForm" (ngSubmit)="register()">
 
 <div mat-dialog-content class="container">
   <div class="card">
 
- 
+    <mat-form-field id="username" appearance="outline">
+        <mat-label for="username">Username</mat-label>
+        <input matInput formControlName="username" required="true" />
+      </mat-form-field>
 
-     <mat-form-field id="username" appearance="outline">
-
-        <mat-label for="username">username</mat-label>
-        <input matInput required="true" [(ngModel)]="registerForm.username" />
-        
-    </mat-form-field>
-
-    <mat-form-field id="email" appearance="outline">
+      <mat-form-field id="email" appearance="outline">
         <mat-label for="email">Email</mat-label>
-        <input matInput  required="true" [(ngModel)]="registerForm.email" />
-    </mat-form-field>
+        <input matInput formControlName="email" required="true" />
+      </mat-form-field>
+    <p>{{invalidEmail}}</p>
 
     <mat-form-field id="password" appearance="outline">
         <mat-label for="password">Password</mat-label>
-        <input matInput  required="true" [(ngModel)]="registerForm.password"/>
-    </mat-form-field>
+        <input matInput formControlName="password" required="true" />
+      </mat-form-field>
+   
 
+      <mat-form-field id="confirmPassword" appearance="outline">
+        <mat-label for="confirmPassword">confirmPassword</mat-label>
+        <input matInput formControlName="confirmPassword" required="true" />
+      </mat-form-field>
+    <p>{{invalidPassword}}</p>
 
-    <mat-dialog-actions>
-      <button mat-raised-button color="primary" type="button" (click)="register()">Register</button>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" class="btn" [disabled]="">Register</button>
       <p class="login">Already have an account? <a href="/login">Login</a>.</p>
-    </mat-dialog-actions>
+    </div>
 
   </div>
 </div>
+</form>
 </div>
 
 
