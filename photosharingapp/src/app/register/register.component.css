@@ -1,4 +1,4 @@
-.content {
+.container {
     padding-top: 10px;
     align-items: center;
 }
@@ -13,7 +13,7 @@ mat-form-field {
 }
 
 .class{
-    align-items: center;
+    text-align: center;
 }
 
 form {
@@ -21,4 +21,26 @@ form {
     max-width: 500px;
     width: 100%;
     align-items: center;
+}
+
+.content{
+    border: 2px solid grey;
+    width: 25%;
+    margin: 5em auto;
+    padding: 2em;
+
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.btn{
+    margin-left: 15%;
+    width: 70%;
+}
+
+.login{
+    text-align: center;
+    margin-top: 10px;
 }

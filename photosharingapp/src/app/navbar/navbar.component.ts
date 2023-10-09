@@ -13,6 +13,10 @@ export class NavbarComponent {
   constructor(private _dialog: MatDialog){
     
   }
+  authorized = false;
+  registered = false;
+  logedIn = false;
+
 
   add(){
     this._dialog.open(AddProfileComponent)

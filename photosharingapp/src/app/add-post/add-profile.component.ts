@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
 })
 export class AddProfileComponent implements OnInit {
   userForm: FormGroup = new FormGroup({
+
     name: new FormControl(''),
     image: new FormControl(''),
     caption: new FormControl(''),
+
   });
 
 
@@ -54,6 +56,7 @@ export class AddProfileComponent implements OnInit {
   }
 
   post() {
+
     let formData = new FormData();
 
     formData.append('name', this.userForm.value.name);
@@ -65,6 +68,7 @@ export class AddProfileComponent implements OnInit {
     
     this.backEnd.uploadPost(formData).subscribe({
       next: () => {
+        
         window.location.reload();
         this.dialog.close(true);
       },

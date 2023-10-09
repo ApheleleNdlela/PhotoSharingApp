@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service'
+import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
+
+import { BackendApiService } from '../services/backend-api.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { SnackbarService } from '../services/snackbar.service';
 
 
 @Component({
@@ -9,10 +17,16 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  {
-  form: any = {
-    username: null,
-    password: null
-  };
+
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  })
+
+  invalidPassword = '';
+  invalidEmail = '';
+  invalidUsername = '';
+
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -20,41 +34,39 @@ export class LoginComponent  {
   constructor(
     
     private authService: AuthService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private snackBar: SnackbarService
     ) {}
 
   ngOnInit() {
-    // this.user.currentUserData.subscribe(userData => (this.userData = userData));
-    if (this.storageService.isLoggedIn()) {
-      this.isLoggedIn = true;
-      // this.roles = this.storageService.getUser().roles;
-    }
+ 
   }
-
-  changeData(event:any) {
-    var msg = event.target.value;
-    // this.user.changeData(msg);
-  }
-
   
-  logIn() {
-    // this.user.changeData(data);
-    const { username, password } = this.form
+  login() {
+   
+    const { username, password } = this.loginForm.value
+
+    if(!password){
+      this.invalidPassword = 'Please enter your password'
+    } else if(!username){
+      this.invalidUsername = 'Please enter a correct username'
+    }
 
     this.authService.login(username, password).subscribe({
       next: data => {
-        console.log(data);
-        
+      
         this.storageService.saveUser(data);
         this.storageService.saveToken(data.token)
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        window.location.replace("view") // last line
+        this.snackBar.openSnackBar('Login successful','Done')
+        window.location.replace("view") 
       },
       error: err => {
-        console.error("Details required")
+        this.snackBar.openSnackBar('Login failed', 'Failed')
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+
       }
     })
     

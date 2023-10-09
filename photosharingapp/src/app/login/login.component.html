@@ -1,36 +1,37 @@
-<div class="container">
+<app-navbar></app-navbar>
+
+<div class="content">
+<div class="card-head class" >
+    <h2>LOGIN</h2>
+    <p>Welcome Back!</p>
+</div>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+
+<div mat-dialog-content class="container">
   <div class="card">
 
-      <div class="card-head">
-          <h2>WELCOME BACK.</h2>
-          <p>Login to your account</p>
-      </div>
-      <form action="" name="form" (ngSubmit)="f.form.valid && logIn()" #f="ngForm" novalidate>
-          <input type="text" placeholder="*Username" 
-          type="text" name="username" 
-          class="form-control" id="emailInput"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          #username="ngModel" required
-          [ngClass]="{ 'is-invalid': f.submitted && username.errors }">
-          
+    <mat-form-field id="username" appearance="outline">
+        <mat-label for="username">Username</mat-label>
+        <input matInput formControlName="username" required="true" />
+      </mat-form-field>
 
-          <input type="password" placeholder="*Password" 
-          type="password" 
-          name="password" class="form-control" 
-          id="passwordInput"
-          [(ngModel)]="form.password"
-          required
-          minlength="8"
-          #password="ngModel" required
-          [ngClass]="{ 'is-invalid': f.submitted && password.errors }" >
-          
-      </form>
 
-      <button (click)="logIn()">Login</button>
-      <p class="login">Don`t have an account? <a href="/register">Register</a>.</p>
+    <mat-form-field id="password" appearance="outline">
+        <mat-label for="password">Password</mat-label>
+        <input matInput formControlName="password" required="true" />
+      </mat-form-field>
+    
+    <p>{{invalidPassword}}</p>
+
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" class="btn">LOGIN</button>
+      <p class="login">Don't have an account? <a routerLink="/register">Register</a>.</p>
+    </div>
+
   </div>
+</div>
+</form>
 </div>
 
 
