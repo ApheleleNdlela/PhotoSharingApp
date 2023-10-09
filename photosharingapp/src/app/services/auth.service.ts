@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { Router } from '@angular/router';
 
 
 const base_url = "http://localhost:3300/users"
@@ -17,10 +16,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-
   constructor(
-    private http: HttpClient,
-    
+    private http: HttpClient
   ) { }
 
 
@@ -44,19 +41,6 @@ Observable<any> {
 }
 
 }
-
-// logout(){
-//   sessionStorage.clear()
-// }
-// getOne(id: any){
-//   return this.http.get(user_api+id, httpOptions)
-
-// }
-
-// update(data: any, id: any){
-//   return this.http.put(user_api+id, data, httpOptions)
-// }
-// }
 
 
 
