@@ -49,7 +49,7 @@ export class LoginComponent  {
         this.storageService.saveToken(data.token)
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        window.location.replace("profile") // last line
+        window.location.replace("view") // last line
       },
       error: err => {
         console.error("Details required")
