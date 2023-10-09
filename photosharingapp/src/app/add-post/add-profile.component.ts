@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BackendApiService } from '../services/backend-api.service';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../services/auth.service';
 
 @Component({
   selector: 'app-add-profile',
@@ -12,10 +13,9 @@ import { Router } from '@angular/router';
 export class AddProfileComponent implements OnInit {
   userForm: FormGroup = new FormGroup({
 
-    name: new FormControl(''),
     image: new FormControl(''),
     caption: new FormControl(''),
-
+    user: new FormControl(this._authService.getUsername()),
   });
 
 
@@ -24,14 +24,15 @@ export class AddProfileComponent implements OnInit {
     private backEnd: BackendApiService,
     private dialog: MatDialogRef<AddProfileComponent>,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any, private _authService: AuthServiceService
   ) {}
 
   ngOnInit(): void {
-    this.reloadCurrentRoute();
+    this.reloadCurrentRoute()
   }
 
   file: any;
+
 
   files(event: any) {
     this.file = event.target.files[0];
@@ -49,7 +50,6 @@ export class AddProfileComponent implements OnInit {
 
   reloadCurrentRoute() {
     const currentUrl = this.router.url;
-    console.log(currentUrl);
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentUrl]);
     });
@@ -59,17 +59,18 @@ export class AddProfileComponent implements OnInit {
 
     let formData = new FormData();
 
-    formData.append('name', this.userForm.value.name);
     formData.append('image', this.userForm.value.image);
     formData.append('caption', this.userForm.value.caption);
+    formData.append('user', this.userForm.value.user);
     formData.append('file', this.file);
+
+  
 
     this.SelectedImage();
     
     this.backEnd.uploadPost(formData).subscribe({
-      next: () => {
-        
-        window.location.reload();
+      next: (res) => {
+        // window.location.reload();
         this.dialog.close(true);
       },
     });

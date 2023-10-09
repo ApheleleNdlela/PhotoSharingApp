@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthServiceService } from '../services/auth.service';
 import { SnackbarService } from '../services/snackbar.service';
 
 
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     
-    private authService: AuthService,
+    private authService: AuthServiceService,
     private _snackBar: SnackbarService
    
     ) { }
@@ -55,7 +55,7 @@ register(): void {
     return 
   }
     
-  this.authService.register(username, email, password, confirmPassword).subscribe({
+  this.authService.register(this.registerForm.value).subscribe({
     next: data => {
       this._snackBar.openSnackBar('Registered Successfully', 'Done')
       this.isSuccessful = true;

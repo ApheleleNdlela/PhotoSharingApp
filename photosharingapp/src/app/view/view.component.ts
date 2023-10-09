@@ -1,11 +1,7 @@
-import { Component,OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
-// import { AddProfileComponent } from '../add-post/add-profile.component';
-
-
-
-
+import { AuthServiceService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -13,49 +9,45 @@ import { BackendApiService } from '../services/backend-api.service';
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
-  
-
   posts: any;
 
-  post:any = {
-    name: '',
-    image: '',
-    caption: ''
-  }
+  loggedInUser = this._authService.getUsername() || this._authService.getLocalStorageData() ;
 
   constructor(
-    private service: BackendApiService, private _router: Router
-    ){}
+    private service: BackendApiService,
+    private _authService: AuthServiceService,
+    private _router: Router
+  ) {}
 
-  ngOnInit(): void{
-    this.getallPosts() 
-    // this.reloadCurrentRoute()
+  ngOnInit(): void {
+    this.getallPosts();
+  console.log(this._authService.getUsername())
+
+  this._authService.getLocalStorageData()
   }
 
-  reloadCurrentRoute() {
-    // const currentUrl = this._router.url;
-    // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-    //   this._router.navigate([currentUrl]);
-    // });
-  }
+  // isLoggedInUser() {
+  //   if (!this.loggedInUser) {
+  //     this._router.navigate(['/', 'login']);
+  //   } 
+  // }
 
   getallPosts(): void {
-
     this.service.getallPosts().subscribe({
       next: (res) => {
         this.posts = res;
+        console.log(this.posts)
       },
     });
   }
 
-  deletePost(id: number): void {
-    alert ('Are you sure you want to delete?');
-    this.service.deletePost(id).subscribe({
-      next: () => {
-        this.getallPosts()
-      },
-      error: console.log,
-    });
-  }
-
+//   deletePost(id: number): void {
+//     alert('Are you sure you want to delete?');
+//     this.service.deletePost(id).subscribe({
+//       next: () => {
+//         this.getallPosts();
+//       },
+//       error: console.log,
+//     });
+//   }
 }

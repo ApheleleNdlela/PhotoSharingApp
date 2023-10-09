@@ -1,34 +1,28 @@
-
 <div mat-dialog-title>
-    <h1>User Profile</h1>
+  <h1>User Profile</h1>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="post()">
+
+
+  <div mat-dialog-content class="content">
+    <div class="row">
+
+      <mat-form-field id="caption" appearance="outline">
+        <mat-label for="caption">Caption</mat-label>
+        <input matInput formControlName="caption" required="true" />
+      </mat-form-field>
+
+      <input type="hidden" formArrayName="user">
+
+    </div>
+    <input (input)="files($event)" #fileInput type="file" required="true">
+
+    <div mat-dialog-actions>
+      <button mat-raised-button [mat-dialog-close]>CANCEL</button>
+      <button mat-raised-button color="primary" type="submit">POST</button>
+    </div>
+
   </div>
-  
-   <form [formGroup]="userForm" (ngSubmit)="post()">
-   
-  
-      <div mat-dialog-content class="content">
-        <div class="row">
-            <!-- <mat-form-field id="name" appearance="outline">
-              <mat-label for="name">Name</mat-label>
-              <input matInput formControlName="name" required="true" />
-            </mat-form-field> -->
-            
-          <mat-form-field id="caption" appearance="outline">
-            <mat-label for="caption">Caption</mat-label>
-            <input matInput formControlName="caption" required="true" />
-          </mat-form-field>
-  
-        </div>
-          <input (input)="files($event)" #fileInput type="file" required="true">
-            
-          
-  
-          <div mat-dialog-actions>
-            <button mat-raised-button [mat-dialog-close]>CANCEL</button>
-            <button mat-raised-button color="primary" type="submit">POST</button>
-          </div>
-  
-      </div>
-  
-   </form>
-  
+
+</form>
