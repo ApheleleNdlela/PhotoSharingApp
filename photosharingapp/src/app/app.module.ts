@@ -28,6 +28,7 @@ import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { LikeComponent } from './like/like.component';
 import { CommentComponent } from './comment/comment.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 
 
@@ -44,6 +45,7 @@ import { CommentComponent } from './comment/comment.component';
     TestComponent,
     LikeComponent,
     CommentComponent,
+    MyPostsComponent,
     
     
 

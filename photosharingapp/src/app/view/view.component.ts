@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ViewComponent implements OnInit {
   posts: any;
 
-  loggedInUser = this._authService.getUsername() || this._authService.getLocalStorageData() ;
+  loggedInUser =
+    this._authService.getUsername();
 
   constructor(
     private service: BackendApiService,
@@ -21,22 +22,20 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallPosts();
-  console.log(this._authService.getUsername())
-
-  this._authService.getLocalStorageData()
+    this.isLoggedInUser()
   }
 
   isLoggedInUser() {
     if (!this.loggedInUser) {
       this._router.navigate(['/', 'login']);
-    } 
+    }
   }
 
   getallPosts(): void {
     this.service.getallPosts().subscribe({
       next: (res) => {
         this.posts = res;
-        console.log(this.posts)
+        console.log(this.posts);
       },
     });
   }

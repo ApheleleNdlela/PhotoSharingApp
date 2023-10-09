@@ -6,7 +6,7 @@ import { AddProfileComponent } from './add-post/add-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TestComponent } from './test/test.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'post', component: AddProfileComponent },
 
   { path: 'profile', component: UserProfileComponent },
+  {path: 'my-posts', component: MyPostsComponent}
 ];
 
 @NgModule({

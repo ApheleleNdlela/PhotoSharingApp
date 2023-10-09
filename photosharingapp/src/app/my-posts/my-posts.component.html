@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<h2>Hello {{loggedInUser}}</h2>
+
+<nav>
+  <button mat-raised-button><a routerLink="/view">All POSTS</a></button>
+  <button mat-raised-button><a routerLink="/my-posts">MY POSTS</a></button>
+</nav>
+
+<div class="container">
+    <mat-card class="post-card" *ngFor="let post of posts">
+      <mat-card-header>
+        <p>{{post.user}}</p>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{post.username}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image class="image" src="{{post.image}}" alt="">
+  
+      <mat-card-content>
+        <p>{{post.caption}}</p>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <span><app-like></app-like></span>
+        <span><app-comment></app-comment> </span>
+      </mat-card-actions>
+    </mat-card>
+  </div>
