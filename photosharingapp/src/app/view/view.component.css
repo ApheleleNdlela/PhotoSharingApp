@@ -46,4 +46,10 @@
     background-color: rgb(122, 108, 247);
   }
 
+  h2{
+    position: relative;
+    left: 70px;
+    font-style: italic;
+  }
+
   
