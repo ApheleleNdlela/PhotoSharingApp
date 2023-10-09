@@ -18,7 +18,7 @@ export class ViewComponent implements OnInit {
   posts: any;
 
   post:any = {
-    name: '',
+    // name: '',
     image: '',
     caption: ''
   }
@@ -29,8 +29,11 @@ export class ViewComponent implements OnInit {
 
   ngOnInit(): void{
     this.getallPosts() 
+    // if(!window.sessionStorage.getItem('token')){
+    //   this._router.navigate(['/sign-in'])
     // this.reloadCurrentRoute()
-  }
+  // }
+}
 
   reloadCurrentRoute() {
     // const currentUrl = this._router.url;

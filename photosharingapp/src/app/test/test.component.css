@@ -2,7 +2,7 @@
     margin: 25%;
 } */
 
-.card {
+/* .card {
     margin-left: 25%;
     margin-top: 50px;
     display: flex;
@@ -10,24 +10,24 @@
     width: 300px;
     height: 400px;
     /* background: blue; */
-    padding: 2em;
+    /* padding: 2em;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px 2px black;
-}
+    box-shadow: 2px 2px 5px 2px black; */
+/* }
 .card-head {
     margin-left: 100px;
-}
+} */
 
-form {
+/* form {
     margin-left: 50px;
-}
-
+} */
+/* 
 input {
     width: 200px;
     height: 35px;
-    color: black;
-    margin-top: 10px;
+    color: black; */
+    /* margin-top: 10px;
 }
 
 button {
@@ -38,11 +38,68 @@ button {
     border: none;
     margin-left: 50px;
     margin-top: 10px;
-}
+} */
 
-.login {
+/* .login {
     width: 200px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 10px;
-}
+    margin-left: 50px; */
+    /* margin-top: 10px; */
+/* }  */
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .liked {
+    color: red;
+  }
+  
+  .heart-icon {
+    font-size: 1.5rem;
+    /* margin-right: 10px; */
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+  
+  .comment-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .comment-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  textarea {
+    resize: none;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  button.comment-post {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  button.comment-post:hover {
+    background-color: #0056b3;
+  }
+  

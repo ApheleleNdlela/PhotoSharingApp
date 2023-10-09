@@ -6,7 +6,7 @@
   <mat-card class="post-card" *ngFor ="let post of posts">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{post.name}}</mat-card-title>
+      <mat-card-title>{{post.username}}</mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image class="image" src="{{post.image}}" alt="">
@@ -17,10 +17,13 @@
 
     <mat-card-actions>
       <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+      <span><app-like></app-like></span>
+      <span><app-comment></app-comment>      </span>
+      
 
 
-      <i><img src="../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg" class="like"></i>
-      <i><img src="../../assets/chat.svg" class="chat"></i>
+      <!-- <i><img src="../../assets/favorite_FILL0_wght400_GRAD0_opsz24.svg" class="like"></i> -->
+      <!-- <i><img src="../../assets/chat.svg" class="chat"></i> -->
       <!-- <i><img src="../../assets/x.svg"  class="delete"></i> -->
     </mat-card-actions>
   </mat-card>

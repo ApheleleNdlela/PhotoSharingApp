@@ -59,7 +59,7 @@ export class AddProfileComponent implements OnInit {
 
     let formData = new FormData();
 
-    formData.append('name', this.userForm.value.name);
+    // formData.append('name', this.userForm.value.name);
     formData.append('image', this.userForm.value.image);
     formData.append('caption', this.userForm.value.caption);
     formData.append('file', this.file);
