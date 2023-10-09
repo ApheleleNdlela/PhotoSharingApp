@@ -26,11 +26,11 @@ export class ViewComponent implements OnInit {
   this._authService.getLocalStorageData()
   }
 
-  // isLoggedInUser() {
-  //   if (!this.loggedInUser) {
-  //     this._router.navigate(['/', 'login']);
-  //   } 
-  // }
+  isLoggedInUser() {
+    if (!this.loggedInUser) {
+      this._router.navigate(['/', 'login']);
+    } 
+  }
 
   getallPosts(): void {
     this.service.getallPosts().subscribe({
@@ -40,14 +40,4 @@ export class ViewComponent implements OnInit {
       },
     });
   }
-
-//   deletePost(id: number): void {
-//     alert('Are you sure you want to delete?');
-//     this.service.deletePost(id).subscribe({
-//       next: () => {
-//         this.getallPosts();
-//       },
-//       error: console.log,
-//     });
-//   }
 }

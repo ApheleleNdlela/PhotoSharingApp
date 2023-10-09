@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="card">
 
         <div class="card-head">
@@ -16,4 +16,19 @@
         <button>Register</button>
         <p class="login">Already have an account? <a href="">Login</a>.</p>
     </div>
-</div>
+</div> -->
+
+<button (click)="toggleLike()" [class.liked]="isLiked">
+    <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
+    {{ likeCount }}
+  </button>
+  
+  <button (click)="toggleCommentInput()">
+    <span [class]="showCommentInput ? 'comment-icon active' : 'comment-icon'">&#128172;</span>
+    
+  </button>
+  <div *ngIf="showCommentInput" class="comment-input">
+    <textarea placeholder="Add a comment..." [(ngModel)]="commentText"></textarea>
+    <button (click)="postComment()">Post</button>
+  </div>
+  
