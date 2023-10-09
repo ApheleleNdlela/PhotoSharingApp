@@ -57,9 +57,9 @@ export class AuthServiceService {
         if (this.token) {
           this.authenticatedUser = true;
           this._router.navigate(['/', 'view']);
-          // this.logoutTimer = setTimeout(() => {
-          //   this.logout();
-          // }, res.expiresIn * 3600);
+          this.logoutTimer = setTimeout(() => {
+            this.logout();
+          }, res.expiresIn * 3600);
           const now = new Date();
           const expiresDate = new Date(now.getTime() + res.expiresIn * 1000);
           this.storeLoginDetails(this.token, expiresDate, this.username);
@@ -74,14 +74,14 @@ export class AuthServiceService {
     });
   }
 
-  // logout() {
-  //   this.token = '';
-  //   this.authenticatedUser = false;
-  //   this.authenticatedSub.next(false);
-  //   this._router.navigate(['/login']);
-  //   clearTimeout(this.logoutTimer);
-  //   this.clearLoginDetails();
-  // }
+  logout() {
+    this.token = '';
+    this.authenticatedUser = false;
+    this.authenticatedSub.next(false);
+    this._router.navigate(['/login']);
+    clearTimeout(this.logoutTimer);
+    this.clearLoginDetails();
+  }
 
   storeLoginDetails(token: any, expirationDate: Date, username: any) {
     localStorage.setItem('token', token);
@@ -119,7 +119,7 @@ export class AuthServiceService {
         this.token = localStorageData.token;
         this.authenticatedUser = true;
         this.authenticatedSub.next(true);
-        // this.logoutTimer.setTimeout(expiresIn / 1000);
+        this.logoutTimer.setTimeout(expiresIn / 1000);
       }
     }
   }

@@ -9,8 +9,7 @@
           
           <mat-menu #menu="matMenu">
             <button mat-menu-item >profile</button>
-            <button mat-menu-item >sign out</button>
-            <button mat-menu-item routerLink="/login">login</button>
+            <button mat-menu-item (click)="logOut()">sign out</button>
             <button mat-menu-item>Register</button>
           </mat-menu>
          
