@@ -18,7 +18,7 @@ export class ViewComponent implements OnInit {
     private authService: AuthServiceService,
     private _router: Router
   ) {}
-
+  
   ngOnInit(): void {
     this.getallPosts();
     this.isLoggedInUser()
