@@ -11,28 +11,19 @@ import { Router } from '@angular/router';
 export class ViewComponent implements OnInit {
   posts: any;
 
-<<<<<<< HEAD
-  loggedInUser =
-    this._authService.getUsername();
-=======
   loggedInUser = this.authService.getUsername() || this.authService.getLocalStorageData() ;
->>>>>>> 94b09c3e654fa2beedcb14fd0cf81f54f163d86d
 
   constructor(
     private service: BackendApiService,
     private authService: AuthServiceService,
     private _router: Router
   ) {}
-
+  
   ngOnInit(): void {
     this.getallPosts();
-<<<<<<< HEAD
-    this.isLoggedInUser()
-=======
   console.log(this.authService.getUsername())
 
   this.authService.getLocalStorageData()
->>>>>>> 94b09c3e654fa2beedcb14fd0cf81f54f163d86d
   }
 
   isLoggedInUser() {
