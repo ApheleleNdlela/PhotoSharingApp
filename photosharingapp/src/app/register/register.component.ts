@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthServiceService } from '../services/auth.service';
-import { SnackbarService } from '../services/snackbar.service';
+import { SnackbarService } from '../snackbar.service';
 
 
 @Component({
