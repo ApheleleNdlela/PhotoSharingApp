@@ -46,7 +46,6 @@
     background-color: rgb(122, 108, 247);
   }
 
-<<<<<<< HEAD
   .example-spacer {
     flex: 1 1 auto;
   }
@@ -65,12 +64,4 @@
     display: flex;
     justify-content: space-around;
     margin: 2em auto;
-=======
-  h2{
-    position: relative;
-    left: 70px;
-    font-style: italic;
->>>>>>> 94b09c3e654fa2beedcb14fd0cf81f54f163d86d
   }
-
-  

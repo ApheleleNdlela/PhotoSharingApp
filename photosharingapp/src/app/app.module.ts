@@ -26,6 +26,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
+import { LikeComponent } from './like/like.component';
+import { CommentComponent } from './comment/comment.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 
 
@@ -40,6 +43,9 @@ import { TestComponent } from './test/test.component';
     LoginComponent,
     RegisterComponent,
     TestComponent,
+    LikeComponent,
+    CommentComponent,
+    MyPostsComponent,
     
     
 

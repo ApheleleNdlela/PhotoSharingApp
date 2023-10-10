@@ -6,33 +6,27 @@ import { AddProfileComponent } from './add-post/add-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TestComponent } from './test/test.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
-  {path: "", redirectTo: "register", pathMatch:"full"},
+  { path: 'register', component: RegisterComponent },
 
-  {path: "register", component: RegisterComponent},
+  { path: 'login', component: LoginComponent },
 
-  {path: "login", component: LoginComponent},
+  { path: 'view', component: ViewComponent },
 
-  {path:"view", component: ViewComponent},
+  { path: 'navbar', component: NavbarComponent },
 
-  {path:"navbar", component: NavbarComponent},
+  { path: 'post', component: AddProfileComponent },
 
-  {path: "post", component: AddProfileComponent},
-
-  
-
-  
-  {path: "profile", component: UserProfileComponent},
-
-  // Test Components
-  {path: "test", component: TestComponent}
+  { path: 'profile', component: UserProfileComponent },
+  {path: 'my-posts', component: MyPostsComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
