@@ -28,4 +28,16 @@ export class MyPostsComponent implements OnInit {
       error: console.log,
     });
   }
-}
+
+  removePost(id: any){
+    alert('Are you sure you want to delete this course?');
+    this._backendService.deletePost(id).subscribe({
+      next: () => {
+    
+        this.getUserPosts();
+      },
+      error: console.log,
+    });
+  }
+  }
+

@@ -23,6 +23,7 @@
       <mat-card-actions>
         <span><app-like></app-like></span>
         <span><app-comment></app-comment> </span>
+        <button mat-icon-button (click)="removePost(post._id)"><mat-icon color="warn">delete</mat-icon></button>
       </mat-card-actions>
     </mat-card>
   </div>
