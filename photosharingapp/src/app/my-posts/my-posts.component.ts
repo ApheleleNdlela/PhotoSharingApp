@@ -24,7 +24,9 @@ export class MyPostsComponent implements OnInit {
     this._backendService.getallPosts().subscribe({
       next: (res) => {
         this.posts = res.filter((post: any) => post.user === this.loggedInUser);
+        console.log(res)
       },
+      
       error: console.log,
     });
   }

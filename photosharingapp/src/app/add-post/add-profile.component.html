@@ -13,7 +13,7 @@
         <input matInput formControlName="caption" required="true" />
       </mat-form-field>
 
-      <input type="hidden" formArrayName="user">
+      <input type="hidden" formControlName="user">
 
     </div>
     <input (input)="files($event)" #fileInput type="file" required="true">
