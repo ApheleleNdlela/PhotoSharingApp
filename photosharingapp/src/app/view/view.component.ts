@@ -9,23 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
-  posts: any;
-  isLiked = false;
-  likeCount = 0;
-
-  loggedInUser = this.authService.getUsername();
-  userId = this.authService.getUserId();
-  token = this.authService.getToken()
-
   constructor(
     private service: BackendApiService,
     private authService: AuthServiceService,
     private _router: Router
   ) {}
 
+  posts: any;
+  isLiked:any =  localStorage.getItem('status') || false;
+
+  private loggedInUser = this.authService.getUsername();
+  private userId = this.authService.getUserId();
+  private token = this.authService.getToken();
+  public getLikes = localStorage.getItem('likes') || 0;
+
   ngOnInit(): void {
-    this.getallPosts();
     this.isLoggedInUser();
+    this.getallPosts();
+    this.getLikes;
+    this.isLiked
   }
 
   isLoggedInUser() {
@@ -42,24 +44,36 @@ export class ViewComponent implements OnInit {
     });
   }
 
+  getPost(id: any): void {
+    this.service.getPosts(id).subscribe({
+      next: (res) => {
+        this.getLikes = res.likes.length;
+        localStorage.setItem('likes', res.likes.length);
+      },
+    });
+  }
+
   toggleLike(id: any) {
     this.isLiked = !this.isLiked;
+    localStorage.setItem('status', this.isLiked)
     if (this.isLiked) {
-      this.likeCount++;
-      // console.log(this.token)
-      // console.log(this.userId)
       this.service.like(id, this.token).subscribe({
         next: (res) => {
-          console.log(res)
-        }
+console.log(this.userId)
+          // if (res.likes.includes())
+          this.getLikes = res.likes.length;
+          localStorage.setItem('likes', res.likes.length);
+        },
       });
-      // this.service.getPosts(id).subscribe({
-      //   next: (res) => {
-      //     console.log(res)
-      //   }
-      // })
-    } else {
-      this.likeCount--;
+    }
+
+    if (!this.isLiked) {
+      this.service.unLike(id, this.token).subscribe({
+        next: (res) => {
+          this.getLikes = res.likes.length;
+          localStorage.setItem('likes', res.likes.length);
+        },
+      });
     }
   }
 }
