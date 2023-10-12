@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SnackbarService } from './snackbar.service';
+import { SnackbarService } from '../snackbar.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
@@ -63,6 +63,7 @@ export class AuthServiceService {
           const now = new Date();
           const expiresDate = new Date(now.getTime() + res.expiresIn * 1000);
           this.storeLoginDetails(this.token, expiresDate, this.username);
+          this._snackBarService.openSnackBar(`Hello, ${this.username}`,'Done');
         }
       },
       error: () => {

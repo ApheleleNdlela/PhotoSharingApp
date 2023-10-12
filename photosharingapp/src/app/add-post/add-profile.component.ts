@@ -70,7 +70,7 @@ export class AddProfileComponent implements OnInit {
     
     this.backEnd.uploadPost(formData).subscribe({
       next: (res) => {
-        // window.location.reload();
+        window.location.reload();
         this.dialog.close(true);
       },
     });

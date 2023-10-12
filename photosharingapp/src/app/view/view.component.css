@@ -50,6 +50,24 @@ n.post-card {
     position: relative;
     left: 70px;
     font-style: italic;
-  }
 
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
   
+  nav a {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  .active {
+    color: blue;
+  }
+  
+  nav {
+    width: 30em;
+    display: flex;
+    justify-content: space-around;
+    margin: 2em auto;
+  }

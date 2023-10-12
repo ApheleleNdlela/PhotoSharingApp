@@ -8,7 +8,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { SnackbarService } from '../services/snackbar.service';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -43,6 +43,6 @@ export class LoginComponent {
       this.invalidUsername = 'Please enter a correct username';
     }
 
-    this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value) 
   }
 }
