@@ -10,18 +10,22 @@ import { Router } from '@angular/router';
 })
 export class ViewComponent implements OnInit {
   posts: any;
+  isLiked = false;
+  likeCount = 0;
 
   loggedInUser = this.authService.getUsername();
+  userId = this.authService.getUserId();
+  token = this.authService.getToken()
 
   constructor(
     private service: BackendApiService,
     private authService: AuthServiceService,
     private _router: Router
   ) {}
-  
+
   ngOnInit(): void {
     this.getallPosts();
-    this.isLoggedInUser()
+    this.isLoggedInUser();
   }
 
   isLoggedInUser() {
@@ -34,8 +38,28 @@ export class ViewComponent implements OnInit {
     this.service.getallPosts().subscribe({
       next: (res) => {
         this.posts = res;
-        console.log(this.posts);
       },
     });
+  }
+
+  toggleLike(id: any) {
+    this.isLiked = !this.isLiked;
+    if (this.isLiked) {
+      this.likeCount++;
+      // console.log(this.token)
+      // console.log(this.userId)
+      this.service.like(id, this.token).subscribe({
+        next: (res) => {
+          console.log(res)
+        }
+      });
+      // this.service.getPosts(id).subscribe({
+      //   next: (res) => {
+      //     console.log(res)
+      //   }
+      // })
+    } else {
+      this.likeCount--;
+    }
   }
 }

@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddProfileComponent } from './add-post/add-profile.component';
-// import { ServicesComponent } from './services/services.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -75,7 +75,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatSnackBarModule
 
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
