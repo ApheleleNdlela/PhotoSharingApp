@@ -43,6 +43,6 @@ export class LoginComponent {
       this.invalidUsername = 'Please enter a correct username';
     }
 
-    this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value) 
   }
 }
