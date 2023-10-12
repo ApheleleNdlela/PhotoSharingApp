@@ -18,7 +18,7 @@
     </div>
 </div> -->
 
-<button (click)="toggleLike()" [class.liked]="isLiked">
+<!-- <button (click)="toggleLike()" [class.liked]="isLiked">
     <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
     {{ likeCount }}
   </button>
@@ -30,5 +30,13 @@
   <div *ngIf="showCommentInput" class="comment-input">
     <textarea placeholder="Add a comment..." [(ngModel)]="commentText"></textarea>
     <button (click)="postComment()">Post</button>
-  </div>
+  </div> -->
   
+  <div class="profile">
+    <img [src]="user.profilePicture" alt="Profile Picture" />
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.bio }}</p>
+    <!-- Add more user details here -->
+  </div>
+
+  <app-test></app-test>

@@ -47,50 +47,50 @@ button {
     /* margin-top: 10px; */
 /* }  */
 
-button {
+/* button {
     border: none;
     background: none;
     cursor: pointer;
-  }
+  } */
   
-  .liked {
+  /* .liked {
     color: red;
   }
-  
-  .heart-icon {
-    font-size: 1.5rem;
+   */
+  /* .heart-icon { */
+    /* font-size: 1.5rem; */
     /* margin-right: 10px; */
-  }
+  /* } */
 
-  button {
+  /* button {
     border: none;
     background: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     font-size: 1rem;
-  }
+  } */
   
-  .comment-icon {
+  /* .comment-icon {
     font-size: 1.5rem;
     margin-right: 0.5rem;
-  }
+  } */
   
-  .comment-input {
+  /* .comment-input {
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-  }
+  } */
   
-  textarea {
+  /* textarea {
     resize: none;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 0.5rem;
-  }
+  } */
   
-  button.comment-post {
+  /* button.comment-post {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -101,5 +101,25 @@ button {
   
   button.comment-post:hover {
     background-color: #0056b3;
+  } */
+  
+  .profile {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  p {
+    font-size: 16px;
   }
   
