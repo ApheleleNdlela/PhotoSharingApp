@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,7 +22,7 @@ const routes: Routes = [
 
   { path: 'post', component: AddProfileComponent },
 
-  { path: 'profile', component: UserProfileComponent },
+  { path: 'profile', component: ProfileComponent },
   {path: 'my-posts', component: MyPostsComponent}
 ];
 
