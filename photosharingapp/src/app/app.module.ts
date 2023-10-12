@@ -29,6 +29,7 @@ import { TestComponent } from './test/test.component';
 import { LikeComponent } from './like/like.component';
 import { CommentComponent } from './comment/comment.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -46,6 +47,7 @@ import { MyPostsComponent } from './my-posts/my-posts.component';
     LikeComponent,
     CommentComponent,
     MyPostsComponent,
+    ProfileComponent
     
     
 
