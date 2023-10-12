@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<!-- <h2>Hello {{loggedInUser}}</h2> -->
+
 <nav>
   <button mat-raised-button><a routerLink="/view">FEED</a></button>
   <button mat-raised-button><a routerLink="/my-posts">MY POSTS</a></button>
@@ -22,7 +22,13 @@
     
 
     <mat-card-actions>
-      <span><app-like></app-like></span>
+      <!-- <span><app-like></app-like></span> -->
+      <span>
+        <button (click)="toggleLike(post._id)" [class.liked]="isLiked">
+          <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
+
+        </button>
+      </span>
       <span><app-comment></app-comment> </span>
     </mat-card-actions>
   </mat-card>
