@@ -31,7 +31,7 @@ export class AuthServiceService {
   }
 
   getToken() {
-    return this.token;
+    return localStorage.getItem("token")
   }
 
   getUsername() {
@@ -49,7 +49,6 @@ export class AuthServiceService {
   login(data: any): void {
     this._http.post<any>('http://127.0.0.1:3300/users/login', data).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.token = res.token;
         this.username = res.username;
         this.userId = res.userId;
