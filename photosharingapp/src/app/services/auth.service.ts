@@ -98,7 +98,8 @@ export class AuthServiceService {
   getLocalStorageData() {
     const token = localStorage.getItem('token');
     const expiresIn = localStorage.getItem('expiresIn');
-    const username = localStorage.getItem('username')
+    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
 
     if (!token || !expiresIn || !username) {
       return;

@@ -1,17 +1,23 @@
+
+
+
 <form>
-<mat-form-field id="username">
+<mat-form-field id="username" ngIf="user">
     <mat-label for="username">
-        <p></p>
+        <p>{{user.username}}</p>
     </mat-label>
 
 
 </mat-form-field>
 
-<mat-form-field id="email">
+<mat-form-field id="email" ngIf="user">
     <mat-label for="email">
-        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
     </mat-label>
 
     
 </mat-form-field>
 </form>
+
+
+
