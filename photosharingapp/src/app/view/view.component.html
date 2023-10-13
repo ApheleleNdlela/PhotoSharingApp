@@ -24,10 +24,10 @@
     <mat-card-actions>
       <!-- <span><app-like></app-like></span> -->
       <span>
-        <button (click)="toggleLike(post._id)" [class.liked]="isLiked">
+        <button (click)="toggleLike(post._id)" (click) = "getPost(post._id)" [class.liked]="isLiked">
           <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
-
         </button>
+        {{getLikes}}
       </span>
       <span><app-comment></app-comment> </span>
     </mat-card-actions>
