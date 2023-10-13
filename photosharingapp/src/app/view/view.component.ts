@@ -16,18 +16,17 @@ export class ViewComponent implements OnInit {
   ) {}
 
   posts: any;
-  isLiked:any =  localStorage.getItem('status') || false;
+  // isLiked:any =  localStorage.getItem('status') || false;
 
   private loggedInUser = this.authService.getUsername();
-  private userId = this.authService.getUserId();
-  private token = this.authService.getToken();
-  public getLikes = localStorage.getItem('likes') || 0;
+  // private userId = this.authService.getUserId();
+  // private token = this.authService.getToken();
+  // public getLikes = localStorage.getItem('likes') || 0;
+  // count = 0
 
   ngOnInit(): void {
     this.isLoggedInUser();
     this.getallPosts();
-    this.getLikes;
-    this.isLiked
   }
 
   isLoggedInUser() {
@@ -44,36 +43,43 @@ export class ViewComponent implements OnInit {
     });
   }
 
-  getPost(id: any): void {
-    this.service.getPosts(id).subscribe({
-      next: (res) => {
-        this.getLikes = res.likes.length;
-        localStorage.setItem('likes', res.likes.length);
-      },
-    });
-  }
+  // getPost(id: any): void {
+  //   this.service.getPosts(id).subscribe({
+  //     next: (res) => {
+  //       // this.getLikes = res.likes.length;
+  //       localStorage.setItem('likes', res.likes.length);
+  //     },
+  //   });
+  // }
+// posIds:any = []
 
-  toggleLike(id: any) {
-    this.isLiked = !this.isLiked;
-    localStorage.setItem('status', this.isLiked)
-    if (this.isLiked) {
-      this.service.like(id, this.token).subscribe({
-        next: (res) => {
-console.log(this.userId)
-          // if (res.likes.includes())
-          this.getLikes = res.likes.length;
-          localStorage.setItem('likes', res.likes.length);
-        },
-      });
-    }
+  // toggleLike() {
+  
+    // this.posIds.push(id)
+//  console.log(id)
+    // console.log(this.posIds)
+    // this.isLiked = !this.isLiked;
+    // this.count++
+    // localStorage.setItem('status', this.isLiked)
+//     if (this.isLiked) {
+//       this.service.like(id, this.token).subscribe({
+//         next: (res) => {
+// console.log(res)
+     
+//           this.getLikes = res.likes.length;
+//           localStorage.setItem('likes', res.likes.length);
+//         },
+//       });
+//     }
 
-    if (!this.isLiked) {
-      this.service.unLike(id, this.token).subscribe({
-        next: (res) => {
-          this.getLikes = res.likes.length;
-          localStorage.setItem('likes', res.likes.length);
-        },
-      });
+    // if (!this.isLiked) {
+      // this.service.unLike(id, this.token).subscribe({
+      //   next: (res) => {
+      //     console.log(res)
+      //     this.getLikes = res.likes.length;
+      //     localStorage.setItem('likes', res.likes.length);
+      //   },
+      // });
     }
-  }
-}
+  // }
+// }
