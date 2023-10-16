@@ -17,17 +17,17 @@ export class LikeComponent implements OnInit {
     private _authService: AuthServiceService
   ) {}
 
-  @Input() posts?: any;
+  @Input() post?: any;
 
   ngOnInit(): void {}
 
-  getAllPosts() {
-    this._backService.getallPosts().subscribe({
-      next: (res) => {
-        this.posts = res;
-      },
-    });
-  }
+  // getAllPosts() {
+  //   this._backService.getallPosts().subscribe({
+  //     next: (res) => {
+  //       this.posts = res;
+  //     },
+  //   });
+  // }
 
   getPost(id: any): void {
     // this.isLiked = !this.isLiked;
@@ -47,7 +47,7 @@ export class LikeComponent implements OnInit {
         } 
         else if (!this.isLiked){
           this.isLiked = true
-          this.likeCount--;
+          this.likeCount++;
   
           this._backService.like(id, this.token).subscribe({
             next: (res) => {

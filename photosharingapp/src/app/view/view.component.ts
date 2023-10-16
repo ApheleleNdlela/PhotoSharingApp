@@ -38,6 +38,7 @@ export class ViewComponent implements OnInit {
   getallPosts(): void {
     this.service.getallPosts().subscribe({
       next: (res) => {
+        console.log(res)
         this.posts = res;
       },
     });
