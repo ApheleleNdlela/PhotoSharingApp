@@ -2,7 +2,7 @@
 
 <button [class.liked]="isLiked" (click)="getPost(post._id)">
   <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
-  {{likeCount}}
+  {{post.likes.length}}
 </button>
 
 </div>

@@ -34,7 +34,7 @@ export class ViewComponent implements OnInit {
     this.service.getallPosts().subscribe({
       next: (res) => {
         console.log(res);
-        this.posts = res;
+        this.posts = res.reverse();
       },
     });
   }
