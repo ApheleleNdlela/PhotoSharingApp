@@ -1,93 +1,95 @@
 .post-card {
-    max-width: 400px;
-    border: 1px solid #fff;
-    margin: 10px auto;
-  }
-  
-  .image {
-    max-height: 300px;
-    padding-bottom: 20px;
-  }
-  
-  .example-header-image {
-    background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.pnghttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png);
-    background-size: cover;
-  }
+  max-width: 400px;
+  border: 1px solid #fff;
+  margin: 10px auto;
+}
 
-  .like{
-    width: 30px;
-    position: relative;
-  }
-  
-  .chat{
-    width: 27px;
-    position: relative;
-    left: 20px;
-  }
+.image {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
 
-  .delete{
-    width: 30px;
-    position: relative;
-    bottom: 305px;
-    left: 305px;
-  }
+.example-header-image {
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.pnghttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png);
+  background-size: cover;
+}
 
-  .feed{
-    display: flex;
-    justify-content: center;
-    text-decoration: solid;
-    text-size-adjust: 150px;
-  }
+.like {
+  width: 30px;
+  position: relative;
+}
 
-  .container {
-    border: 1px solid #fff;
-    width: 50%;
-    margin: 0 auto;
-    background-color: rgb(122, 108, 247);
-  }
+.chat {
+  width: 27px;
+  position: relative;
+  left: 20px;
+}
 
-  h2{
-    position: relative;
-    left: 70px;
-    font-style: italic;
+.delete {
+  width: 30px;
+  position: relative;
+  bottom: 305px;
+  left: 305px;
+}
 
-  }
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  nav a {
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-  
-  .active {
-    color: blue;
-  }
-  
-  nav {
-    width: 30em;
-    display: flex;
-    justify-content: space-around;
-    margin: 2em auto;
-  }
+.feed {
+  display: flex;
+  justify-content: center;
+  text-decoration: solid;
+  text-size-adjust: 150px;
+}
 
-  .name{
-    /* font-weight: bold; */
-    font-size: large;
-  }
-  button {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  .liked {
-    color: red;
-  }
-  
-  .heart-icon {
-    font-size: 1.5rem;
-    position: relative;
-    left: 5px;
-  }
+.container {
+  border: 1px solid #fff;
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgb(122, 108, 247);
+}
+
+h2 {
+  position: relative;
+  left: 70px;
+  font-style: italic;
+
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.active {
+  color: blue;
+}
+
+nav {
+  width: 30em;
+  display: flex;
+  justify-content: space-around;
+  margin: 2em auto;
+}
+
+.name {
+
+  font-size: large;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.liked {
+  color: red;
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  position: relative;
+  left: 5px;
+}

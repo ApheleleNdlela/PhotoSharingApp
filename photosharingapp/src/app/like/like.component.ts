@@ -23,8 +23,7 @@ export class LikeComponent implements OnInit {
   @Input() post?: any;
 
   ngOnInit(): void {
-    this.isLiked;
-    this.likeCount;
+  
   }
 
   getPost(id: any): void {
@@ -37,9 +36,9 @@ export class LikeComponent implements OnInit {
             next: (res) => {
               console.log(res.likes.length);
               this.likeCount = res.likes.length;
+              console.log(this.likeCount)
               localStorage.setItem('like', JSON.stringify(this.likeCount));
-              // localStorage.setItem("color", JSON.stringify(this.isLiked))
-              console.log(res.likes.includes(this.userId));
+              console.log(this.userId);
             },
           });
         } else if (!this.isLiked) {
@@ -48,28 +47,10 @@ export class LikeComponent implements OnInit {
               console.log(res.likes);
               this.likeCount = res.likes.length;
               localStorage.setItem('like', JSON.stringify(this.likeCount));
-              // localStorage.setItem("color", JSON.stringify(this.isLiked))
             },
           });
         }
       },
     });
   }
-
-  //   toggleLike() {
-  //     this.isLiked = !this.isLiked;
-  //     if (this.isLiked) {
-  //       this.likeCount++;
-  //       // this._backService.like(id, this.token).subscribe({
-  //       //   next: (res) => {
-  //       //     console.log(res);
-  //       // if (res.likes.includes())
-  //       // this.getLikes = res.likes.length;
-  //       //     localStorage.setItem('likes', res.likes.length);
-  //       //   },
-  //       // });
-  //     } else {
-  //       this.likeCount--;
-  //     }
-  //   }
 }
