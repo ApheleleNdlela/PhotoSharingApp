@@ -2,8 +2,8 @@
 <h2>Hello {{loggedInUser | uppercase}}</h2>
 
 <nav>
-  <button mat-raised-button><a routerLink="/view">FEED</a></button>
-  <button mat-raised-button><a routerLink="/my-posts">MY POSTS</a></button>
+  <button class="feedbutton" mat-raised-button><a routerLink="/view">FEED</a></button>
+  <!-- <button mat-raised-button><a routerLink="/my-posts">MY POSTS</a></button> -->
 </nav>
 
 <div class="container">
@@ -22,6 +22,7 @@
 
     <mat-card-actions>
       <span><app-like [post]="post"></app-like></span> 
+      <span><app-comment></app-comment></span>
     </mat-card-actions>
     
   </mat-card>
