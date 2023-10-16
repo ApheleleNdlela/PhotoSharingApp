@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
 import { AuthServiceService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-like',
@@ -8,50 +9,46 @@ import { AuthServiceService } from '../services/auth.service';
   styleUrls: ['./like.component.css'],
 })
 export class LikeComponent implements OnInit {
-  isLiked = localStorage.getItem('status') || false;
-  likeCount = 0;
+  isLiked = false;
+  likeCount = localStorage.getItem('like')|| 0;
+
+  private userId = this._authService.getUserId();
   private token = this._authService.getToken();
 
   constructor(
     private _backService: BackendApiService,
-    private _authService: AuthServiceService
+    private _authService: AuthServiceService,
   ) {}
 
   @Input() post?: any;
 
-  ngOnInit(): void {}
-
-  // getAllPosts() {
-  //   this._backService.getallPosts().subscribe({
-  //     next: (res) => {
-  //       this.posts = res;
-  //     },
-  //   });
-  // }
+  ngOnInit(): void {
+    this.isLiked;
+    this.likeCount;
+  }
 
   getPost(id: any): void {
-    // this.isLiked = !this.isLiked;
-
-
+    this.isLiked = !this.isLiked;
+  
     this._backService.getPosts(id).subscribe({
       next: () => {
         if (this.isLiked) {
-          this.isLiked = false
-
-          this.likeCount++;
           this._backService.like(id, this.token).subscribe({
             next: (res) => {
-              console.log(res.likes);
+              console.log(res.likes.length);
+              this.likeCount = res.likes.length;
+              localStorage.setItem('like', JSON.stringify(this.likeCount));
+              // localStorage.setItem("color", JSON.stringify(this.isLiked))
+              console.log(res.likes.includes(this.userId));
             },
           });
-        } 
-        else if (!this.isLiked){
-          this.isLiked = true
-          this.likeCount--;
-  
+        } else if (!this.isLiked) {
           this._backService.like(id, this.token).subscribe({
             next: (res) => {
               console.log(res.likes);
+              this.likeCount = res.likes.length;
+              localStorage.setItem('like', JSON.stringify(this.likeCount));
+              // localStorage.setItem("color", JSON.stringify(this.isLiked))
             },
           });
         }
