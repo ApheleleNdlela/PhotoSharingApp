@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -26,11 +26,8 @@ export class BackendApiService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  like(id: any, token: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/like/${id}`, token);
+  like(id: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/like/${id}`, {});
   }
 
-  unLike(id: any, token: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/unlike/${id}`, token);
-  }
 }

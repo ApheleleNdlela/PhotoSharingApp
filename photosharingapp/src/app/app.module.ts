@@ -30,6 +30,7 @@ import { LikeComponent } from './like/like.component';
 import { CommentComponent } from './comment/comment.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DetailComponent } from './detail/detail.component';
 
 
 
@@ -47,7 +48,8 @@ import { ProfileComponent } from './profile/profile.component';
     LikeComponent,
     CommentComponent,
     MyPostsComponent,
-    ProfileComponent
+    ProfileComponent,
+    DetailComponent
     
     
 
