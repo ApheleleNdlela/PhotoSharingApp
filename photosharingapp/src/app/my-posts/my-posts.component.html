@@ -9,7 +9,7 @@
 <div class="container">
     <mat-card class="post-card" *ngFor="let post of posts">
       <mat-card-header>
-        <p>{{post.user}}</p>
+        <p class="name">{{post.user}}</p>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{post.username}}</mat-card-title>
         <mat-card-subtitle></mat-card-subtitle>
@@ -17,7 +17,7 @@
       <img mat-card-image class="image" src="{{post.image}}" alt="">
   
       <mat-card-content>
-        <p>{{post.caption}}</p>
+        <p class="caption">{{post.caption}}</p>
       </mat-card-content>
   
       <mat-card-actions>

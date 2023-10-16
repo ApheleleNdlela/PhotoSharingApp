@@ -93,3 +93,8 @@ button {
   position: relative;
   left: 5px;
 }
+
+.caption{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+}
