@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
+import { AuthServiceService } from '../services/auth.service';
 
 @Component({
   selector: 'app-like',
@@ -7,33 +8,71 @@ import { BackendApiService } from '../services/backend-api.service';
   styleUrls: ['./like.component.css'],
 })
 export class LikeComponent implements OnInit {
-  isLiked = false;
+  isLiked = localStorage.getItem('status') || false;
   likeCount = 0;
+  private token = this._authService.getToken();
 
-  constructor(private _backService: BackendApiService) {}
+  constructor(
+    private _backService: BackendApiService,
+    private _authService: AuthServiceService
+  ) {}
 
-  // posts?:any
+  @Input() posts?: any;
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  getAllPosts() {
+    this._backService.getallPosts().subscribe({
+      next: (res) => {
+        this.posts = res;
+      },
+    });
   }
 
-  // getAllPosts() {
-  //   this._backService.getallPosts().subscribe({
-  //     next: (res) => {
-  //     this.posts = res
-  //     },
-  //   });
-  // }
-@Input() post?:any
+  getPost(id: any): void {
+    // this.isLiked = !this.isLiked;
 
-  toggleLike() {
-    this.isLiked = !this.isLiked;
-    if (this.isLiked) {
-      this.likeCount++;
 
-    } else {
-      this.likeCount--;
-    }
+    this._backService.getPosts(id).subscribe({
+      next: () => {
+        if (this.isLiked) {
+          this.isLiked = false
+
+          this.likeCount++;
+          this._backService.like(id, this.token).subscribe({
+            next: (res) => {
+              console.log(res.likes);
+            },
+          });
+        } 
+        else if (!this.isLiked){
+          this.isLiked = true
+          this.likeCount--;
+  
+          this._backService.like(id, this.token).subscribe({
+            next: (res) => {
+              console.log(res.likes);
+            },
+          });
+        }
+      },
+    });
   }
+
+  //   toggleLike() {
+  //     this.isLiked = !this.isLiked;
+  //     if (this.isLiked) {
+  //       this.likeCount++;
+  //       // this._backService.like(id, this.token).subscribe({
+  //       //   next: (res) => {
+  //       //     console.log(res);
+  //       // if (res.likes.includes())
+  //       // this.getLikes = res.likes.length;
+  //       //     localStorage.setItem('likes', res.likes.length);
+  //       //   },
+  //       // });
+  //     } else {
+  //       this.likeCount--;
+  //     }
+  //   }
 }

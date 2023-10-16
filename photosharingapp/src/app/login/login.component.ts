@@ -17,34 +17,15 @@ import { SnackbarService } from '../snackbar.service';
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
-  invalidPassword = '';
-  invalidEmail = '';
-  invalidUsername = '';
-
-  constructor(
-    private authService: AuthServiceService,
-    private storageService: StorageService,
-    private snackBar: SnackbarService
-  ) {}
+  constructor(private authService: AuthServiceService) {}
 
   ngOnInit() {}
 
   login() {
-    const { username, password } = this.loginForm.value;
-
-    if (!password) {
-      this.invalidPassword = 'Please enter your password';
-    } else if (!username) {
-      this.invalidUsername = 'Please enter a correct username';
-    }
-
-    this.authService.login(this.loginForm.value) 
+    this.authService.login(this.loginForm.value);
   }
-
-  
 }
