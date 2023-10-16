@@ -17,7 +17,7 @@ export class ViewComponent implements OnInit {
 
   posts: any;
 
-  private loggedInUser = this.authService.getUsername();
+  public loggedInUser = this.authService.getUsername();
 
   ngOnInit(): void {
     this.isLoggedInUser();

@@ -17,18 +17,11 @@ export class ProfileComponent implements OnInit {
   constructor(
     private _authService: AuthServiceService, 
   ){}
-  user: any={
-    username: '',
-    email: '',
+
+
+  ngOnInit(): void {
+    
   }
-
-  loggedInUser: any;
-
-ngOnInit(){
-  this._authService.getToken();
-  this.loggedInUser = this._authService.getUsername();
-  this.user = this._authService.login
-}
 
 
 
