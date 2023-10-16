@@ -27,7 +27,7 @@ export class BackendApiService {
   }
 
   like(id: any, token: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/like/${id}`, token);
+    return this.http.put(`${this.apiUrl}/like/${id}`, token);
   }
 
   unLike(id: any, token: any): Observable<any> {
