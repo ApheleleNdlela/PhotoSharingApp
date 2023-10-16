@@ -16,9 +16,10 @@ export class ViewComponent implements OnInit {
   ) {}
 
   posts: any;
+  
   // isLiked:any =  localStorage.getItem('status') || false;
 
-  private loggedInUser = this.authService.getUsername();
+  public loggedInUser = this.authService.getUsername();
   // private userId = this.authService.getUserId();
   // private token = this.authService.getToken();
   // public getLikes = localStorage.getItem('likes') || 0;
