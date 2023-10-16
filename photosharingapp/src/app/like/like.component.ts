@@ -47,7 +47,7 @@ export class LikeComponent implements OnInit {
         } 
         else if (!this.isLiked){
           this.isLiked = true
-          this.likeCount++;
+          this.likeCount--;
   
           this._backService.like(id, this.token).subscribe({
             next: (res) => {
