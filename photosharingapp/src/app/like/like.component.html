@@ -1,4 +1,4 @@
-<div *ngFor="let post of posts">
+<div *ngIf="post">
 
 <button [class.liked]="isLiked" (click)="getPost(post._id)">
   <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
