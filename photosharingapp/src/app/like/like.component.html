@@ -1,7 +1,8 @@
+<div *ngFor="let post of posts">
 
-  <button (click)="toggleLike()" [class.liked]="isLiked">
-    <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
-    
-  </button>
+<button [class.liked]="isLiked" (click)="getPost(post._id)">
+  <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
+  {{likeCount}}
+</button>
 
-
+</div>

@@ -72,6 +72,10 @@ n.post-card {
     margin: 2em auto;
   }
 
+  .name{
+    /* font-weight: bold; */
+    font-size: large;
+  }
   button {
     border: none;
     background: none;

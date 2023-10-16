@@ -8,7 +8,7 @@
 <div class="container">
   <mat-card class="post-card" *ngFor="let post of posts">
     <mat-card-header>
-      <p>{{post.user}}</p>
+      <p class="name">{{post.user}}</p>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{post.username}}</mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
@@ -19,15 +19,13 @@
       <p>{{post.caption}}</p>
     </mat-card-content>
 
+    
+
     <mat-card-actions>
-      <!-- <span><app-like></app-like></span> -->
-      <span>
-        <button (click)="toggleLike(post._id)" (click) = "getPost(post._id)" [class.liked]="isLiked">
-          <span [class]="isLiked ? 'heart-icon liked' : 'heart-icon'">&#10084;</span>
-        </button>
-        {{getLikes}}
-      </span>
+      <span><app-like [posts]="posts"></app-like></span>
       <span><app-comment></app-comment> </span>
     </mat-card-actions>
+
   </mat-card>
+
 </div>

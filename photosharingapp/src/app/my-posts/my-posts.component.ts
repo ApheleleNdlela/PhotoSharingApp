@@ -32,7 +32,11 @@ export class MyPostsComponent implements OnInit {
   }
 
   removePost(id: any){
-    alert('Are you sure you want to delete this course?');
+    const confirmed = window.confirm('Are you sure you want to delete this post?');
+    // alert('Are you sure you want to delete this post?');
+    if(!confirmed){ 
+      return;
+    }
     this._backendService.deletePost(id).subscribe({
       next: () => {
     
