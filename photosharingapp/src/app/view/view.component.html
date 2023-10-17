@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
-<h2>Hello {{loggedInUser | uppercase}}</h2>
+<app-navbar [user]="loggedInUser"></app-navbar>
+<!-- <h2>Hello {{ | uppercase}}</h2> -->
 
 <nav>
   <button class="feedbutton" mat-raised-button><a routerLink="/view">FEED</a></button>
@@ -18,8 +18,9 @@
 
     <mat-card-content>
       <p class="caption">{{post.caption}}</p>
+      <hr>
     </mat-card-content>
-
+    
     <mat-card-actions>
       <span><app-like [post]="post"></app-like></span> 
       <span><app-comment></app-comment></span>

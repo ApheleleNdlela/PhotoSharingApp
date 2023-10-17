@@ -16,6 +16,7 @@ export class ViewComponent implements OnInit {
   ) {}
 
   posts: any;
+  
 
   public loggedInUser = this.authService.getUsername();
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./like.component.css'],
 })
 export class LikeComponent implements OnInit {
-  isLiked = false;
+
   likeCount = 0;
 
   constructor(
@@ -19,7 +19,7 @@ export class LikeComponent implements OnInit {
   @Input() post?: any;
 
   ngOnInit(): void {
-    this.isLiked;
+    
   }
 
   reloadCurrentRoute() {
@@ -29,27 +29,16 @@ export class LikeComponent implements OnInit {
     });
   }
 
-  getPost(id: any): void {
-    this.isLiked = !this.isLiked;
-    
-
-    this._backService.getPosts(id).subscribe({
-      next: () => {
-        if (this.isLiked) {
+  postLike(id: any): void {
           this._backService.like(id).subscribe({
             next: (res) => {
+              this.post = res
               this.likeCount = res.likes.length;
+              
+            
               this.reloadCurrentRoute()
             },
           });
-        } else if (!this.isLiked) {
-          this._backService.like(id).subscribe({
-            next: (res) => {
-              this.likeCount = res.likes.length;
-            },
-          });
-        }
-      },
-    });
+        
   }
 }

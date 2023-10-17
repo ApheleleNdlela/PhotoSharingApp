@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [user]="loggedInUser"></app-navbar>
 <!-- <h2>Hello {{loggedInUser}}</h2> -->
 
 <nav>
@@ -18,6 +18,7 @@
   
       <mat-card-content>
         <p class="caption">{{post.caption}}</p>
+        <hr>
       </mat-card-content>
   
       <mat-card-actions>

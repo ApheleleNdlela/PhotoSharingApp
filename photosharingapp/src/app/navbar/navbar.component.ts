@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProfileComponent } from '../add-post/add-profile.component';
 import { RegisterComponent } from '../register/register.component';
@@ -10,7 +10,7 @@ import { AuthServiceService } from '../services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  @Input() user: any
   constructor(private _dialog: MatDialog, private _authService: AuthServiceService){
     
   }
